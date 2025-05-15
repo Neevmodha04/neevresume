@@ -26,107 +26,52 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-
-  <header>
-    <div class="hero" data-aos="fade-up">
-      <h1 class="hero-name">My Projects</h1>
-      <p class="hero-job">A showcase of my recent work and coding projects</p>
-    </div>
-  </header>
-
   <section class="projects-section">
-    <h2 data-aos="fade-up">Featured Projects</h2>
-    <p class="section-subtitle" data-aos="fade-up">Here are some of the projects I have worked on recently.</p>
-
-    <section class="projects-section">
   <h2 data-aos="fade-up">Featured Projects</h2>
   <p class="section-subtitle" data-aos="fade-up">
     Explore the recent projects I've crafted with a focus on functionality and design.
   </p>
 
   <div class="projects-grid">
-    <!-- Project 1 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-      <div class="project-top">
-        <div class="project-icon"><i class="fas fa-utensils"></i></div>
-        <h3>Online Food Ordering</h3>
-        <p class="project-description">A PHP & MySQL-based web app for placing and managing food orders with real-time updates.</p>
+    <!-- Project Card -->
+    <div class="project-card tilt" data-aos="flip-left" data-aos-delay="100">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="project-icon"><i class="fas fa-utensils"></i></div>
+          <h3>Online Food Ordering</h3>
+        </div>
+        <div class="card-back">
+          <p class="project-description">A PHP & MySQL-based web app for placing and managing food orders.</p>
+          <div class="project-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
-      <div class="project-tags">
-        <span class="tag">PHP</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">JavaScript</span>
-      </div>
-      <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
     </div>
 
+    <!-- Repeat this structure for other projects -->
     <!-- Project 2 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-      <div class="project-top">
-        <div class="project-icon"><i class="fas fa-book"></i></div>
-        <h3>Library Management System</h3>
-        <p class="project-description">Java GUI-based application that handles book issuing, user management, and overdue tracking.</p>
+    <div class="project-card tilt" data-aos="flip-left" data-aos-delay="200">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="project-icon"><i class="fas fa-book"></i></div>
+          <h3>Library Management</h3>
+        </div>
+        <div class="card-back">
+          <p class="project-description">Java Swing app for book issuing, fines, and database integration.</p>
+          <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Swing</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
-      <div class="project-tags">
-        <span class="tag">Java</span>
-        <span class="tag">Swing</span>
-        <span class="tag">MySQL</span>
-      </div>
-      <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
     </div>
 
-    <!-- Project 3 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-      <div class="project-top">
-        <div class="project-icon"><i class="fas fa-gamepad"></i></div>
-        <h3>Quiz Game</h3>
-        <p class="project-description">Interactive quiz game featuring a timer, scoring system, and multiple difficulty levels.</p>
-      </div>
-      <div class="project-tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-      </div>
-      <a href="#" class="project-link">Play Now <i class="fas fa-arrow-right"></i></a>
-    </div>
-
-    <!-- Project 4 -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
-      <div class="project-top">
-        <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
-        <h3>Resume Website</h3>
-        <p class="project-description">My personal portfolio website showcasing projects, skills, and a downloadable resume.</p>
-      </div>
-      <div class="project-tags">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
-      </div>
-      <a href="#" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
-    </div>
+    <!-- Add more as needed -->
   </div>
 </section>
-
-  <footer>
-    <div class="footer-content">
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/in/neev-modha-617586290/"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-      <p>Contact: <a href="mailto:neev.modha2008@gmail.com">neev.modha2008@gmail.com</a></p>
-      <p>&copy; 2025 Neev Modha | All Rights Reserved</p>
-    </div>
-  </footer>
-  
-  <!-- Add AOS JS -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true
-    });
-  </script>
-</body>
-</html>
