@@ -4,18 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Neev Modha</title>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <link rel="stylesheet" href="style.css" />
-  <!-- Add AOS CSS -->
+
+  <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .project-card {
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .project-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-front {
+      background-color: #ffffff;
+    }
+
+    .card-back {
+      background-color: #f0f0f0;
+      transform: rotateY(180deg);
+      text-align: center;
+    }
+
+    .project-icon {
+      font-size: 2.5rem;
+      color: #5c6bc0;
+      margin-bottom: 10px;
+    }
+
+    .card-back .project-description {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .project-tags .tag {
+      background: #5c6bc0;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin: 2px;
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      margin-top: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .project-link:hover {
+      color: #5c6bc0;
+    }
+
+    .tilt {
+      transition: transform 0.2s ease;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -26,52 +108,69 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+
   <section class="projects-section">
-  <h2 data-aos="fade-up">Featured Projects</h2>
-  <p class="section-subtitle" data-aos="fade-up">
-    Explore the recent projects I've crafted with a focus on functionality and design.
-  </p>
+    <h2 data-aos="fade-up">Featured Projects</h2>
+    <p class="section-subtitle" data-aos="fade-up">
+      Explore the recent projects I've crafted with a focus on functionality and design.
+    </p>
 
-  <div class="projects-grid">
-    <!-- Project Card -->
-    <div class="project-card tilt" data-aos="flip-left" data-aos-delay="100">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="project-icon"><i class="fas fa-utensils"></i></div>
-          <h3>Online Food Ordering</h3>
-        </div>
-        <div class="card-back">
-          <p class="project-description">A PHP & MySQL-based web app for placing and managing food orders.</p>
-          <div class="project-tags">
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">JavaScript</span>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card tilt" data-aos="flip-left" data-aos-delay="100">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="project-icon"><i class="fas fa-utensils"></i></div>
+            <h3>Online Food Ordering</h3>
           </div>
-          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          <div class="card-back">
+            <p class="project-description">A PHP & MySQL-based web app for placing and managing food orders.</p>
+            <div class="project-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card tilt" data-aos="flip-left" data-aos-delay="200">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="project-icon"><i class="fas fa-book"></i></div>
+            <h3>Library Management</h3>
+          </div>
+          <div class="card-back">
+            <p class="project-description">Java Swing app for book issuing, fines, and database integration.</p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Swing</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Repeat this structure for other projects -->
-    <!-- Project 2 -->
-    <div class="project-card tilt" data-aos="flip-left" data-aos-delay="200">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="project-icon"><i class="fas fa-book"></i></div>
-          <h3>Library Management</h3>
-        </div>
-        <div class="card-back">
-          <p class="project-description">Java Swing app for book issuing, fines, and database integration.</p>
-          <div class="project-tags">
-            <span class="tag">Java</span>
-            <span class="tag">Swing</span>
-            <span class="tag">MySQL</span>
-          </div>
-          <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
-    <!-- Add more as needed -->
-  </div>
-</section>
+  <!-- VanillaTilt JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".tilt"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+    });
+  </script>
+</body>
+</html>
