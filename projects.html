@@ -4,98 +4,149 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Neev Modha</title>
-
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- AOS CSS -->
+  
+  <link rel="stylesheet" href="style.css" />
+  <!-- Add AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="style.css" />
-
   <style>
-    .project-card {
-      perspective: 1000px;
-    }
-
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 250px;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-
-    .project-card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front,
-    .card-back {
-      position: absolute;
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
-      padding: 20px;
-      backface-visibility: hidden;
-      border-radius: 16px;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+      background-color: rgba(0,0,0,0.8);
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 30px;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+      position: relative;
+      animation: modalFadeIn 0.3s;
+    }
+
+    @keyframes modalFadeIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #555;
+      transition: color 0.2s;
+    }
+
+    .close-modal:hover {
+      color: #000;
+    }
+
+    .modal-header {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      color: #333;
+    }
+
+    .modal-body {
+      margin-bottom: 20px;
+    }
+
+    .modal-body p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .modal-footer {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: space-between;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
     }
 
-    .card-front {
-      background-color: #ffffff;
+    .modal-tags {
+      margin: 15px 0;
     }
 
-    .card-back {
-      background-color: #f0f0f0;
-      transform: rotateY(180deg);
-      text-align: center;
+    .modal-tag {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      color: #555;
     }
 
-    .project-icon {
-      font-size: 2.5rem;
-      color: #5c6bc0;
+    .modal-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .modal-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .project-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .project-btn:hover {
+      background-color: #555;
+    }
+
+    .features-list {
+      padding-left: 20px;
+    }
+
+    .features-list li {
       margin-bottom: 10px;
     }
 
-    .card-back .project-description {
-      margin-bottom: 15px;
-      font-size: 0.9rem;
-      color: #444;
-    }
-
-    .project-tags .tag {
-      background: #5c6bc0;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 8px;
-      margin: 2px;
-      font-size: 0.8rem;
-    }
-
-    .project-link {
-      margin-top: 10px;
-      text-decoration: none;
-      font-weight: 500;
-      color: #333;
-      transition: color 0.3s;
-    }
-
-    .project-link:hover {
-      color: #5c6bc0;
-    }
-
-    .tilt {
-      transition: transform 0.2s ease;
+    @media (max-width: 768px) {
+      .modal-content {
+        width: 90%;
+        padding: 20px;
+        margin: 10% auto;
+      }
     }
   </style>
 </head>
@@ -109,67 +160,253 @@
     </ul>
   </nav>
 
+  <header>
+    <div class="hero" data-aos="fade-up">
+      <h1 class="hero-name">My Projects</h1>
+      <p class="hero-job">A showcase of my recent work and coding projects</p>
+    </div>
+  </header>
+
   <section class="projects-section">
     <h2 data-aos="fade-up">Featured Projects</h2>
-    <p class="section-subtitle" data-aos="fade-up">
-      Explore the recent projects I've crafted with a focus on functionality and design.
-    </p>
+    <p class="section-subtitle" data-aos="fade-up">Here are some of the projects I have worked on recently.</p>
 
     <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card tilt" data-aos="flip-left" data-aos-delay="100">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="project-icon"><i class="fas fa-utensils"></i></div>
-            <h3>Online Food Ordering</h3>
-          </div>
-          <div class="card-back">
-            <p class="project-description">A PHP & MySQL-based web app for placing and managing food orders.</p>
-            <div class="project-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">JavaScript</span>
-            </div>
-            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-icon"><i class="fas fa-utensils"></i></div>
+        <h3>Online Food Ordering System</h3>
+        <p>A PHP and MySQL-based project for managing food orders with user authentication.</p>
+        <div class="project-tags">
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">JavaScript</span>
         </div>
+        <a href="#" class="project-link" onclick="openModal('food-ordering-modal'); return false;">View Project <i class="fas fa-arrow-right"></i></a>
       </div>
-
-      <!-- Project 2 -->
-      <div class="project-card tilt" data-aos="flip-left" data-aos-delay="200">
-        <div class="card-inner">
-          <div class="card-front">
-            <div class="project-icon"><i class="fas fa-book"></i></div>
-            <h3>Library Management</h3>
-          </div>
-          <div class="card-back">
-            <p class="project-description">Java Swing app for book issuing, fines, and database integration.</p>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">Swing</span>
-              <span class="tag">MySQL</span>
-            </div>
-            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
+      
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="project-icon"><i class="fas fa-book"></i></div>
+        <h3>Library Management System</h3>
+        <p>Java project with GUI that tracks books, users, and penalties for overdue returns.</p>
+        <div class="project-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Swing</span>
+          <span class="tag">MySQL</span>
         </div>
+        <a href="#" class="project-link" onclick="openModal('library-modal'); return false;">View Project <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+        <h3>Quiz Game</h3>
+        <p>Quiz game with timer, animations, score tracking, and difficulty levels.</p>
+        <div class="project-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+        </div>
+        <a href="#" class="project-link" onclick="openModal('quiz-modal'); return false;">View Project <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="project-icon"><i class="fas fa-file-alt"></i></div>
+        <h3>Resume Website</h3>
+        <p>This very website showcasing my resume and skills using HTML, CSS, and JavaScript.</p>
+        <div class="project-tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a href="#" class="project-link" onclick="openModal('resume-modal'); return false;">View Code <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- AOS JS -->
+  <!-- Project Modals -->
+  <div id="food-ordering-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('food-ordering-modal')">&times;</span>
+      <div class="modal-header">
+        <h2>Online Food Ordering System</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="modal-tag">PHP</span>
+          <span class="modal-tag">MySQL</span>
+          <span class="modal-tag">JavaScript</span>
+          <span class="modal-tag">CSS</span>
+          <span class="modal-tag">HTML</span>
+        </div>
+        
+        <p>A comprehensive web-based food ordering system designed to streamline the process of ordering food online. This project implements a full stack solution with user authentication, order management, and an admin dashboard.</p>
+        
+        <h3>Key Features:</h3>
+        <ul class="features-list">
+          <li>User registration and authentication system</li>
+          <li>Menu browsing with search and filter functionality</li>
+          <li>Shopping cart management</li>
+          <li>Order tracking and history</li>
+          <li>Admin panel for restaurant owners to manage menu items and orders</li>
+          <li>Responsive design for mobile and desktop devices</li>
+          <li>Secure payment processing simulation</li>
+        </ul>
+        
+        <h3>Technical Details:</h3>
+        <p>The backend is built with PHP and MySQL, handling database operations and business logic. The frontend uses HTML, CSS, and JavaScript to create an interactive user interface. The system follows MVC architecture for better code organization and maintainability.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="library-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('library-modal')">&times;</span>
+      <div class="modal-header">
+        <h2>Library Management System</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="modal-tag">Java</span>
+          <span class="modal-tag">Swing</span>
+          <span class="modal-tag">MySQL</span>
+          <span class="modal-tag">JDBC</span>
+        </div>
+        
+        <p>A desktop application built with Java Swing to manage library operations including book inventory, member management, book issuing and returns, and fine calculations for late returns.</p>
+        
+        <h3>Key Features:</h3>
+        <ul class="features-list">
+          <li>Book management (add, update, delete, search)</li>
+          <li>Member registration and management</li>
+          <li>Book issuing and return processing</li>
+          <li>Automatic fine calculation for overdue books</li>
+          <li>Reporting system for books, members, and transactions</li>
+          <li>User authentication for librarians and administrators</li>
+          <li>Data export functionality</li>
+        </ul>
+        
+        <h3>Technical Details:</h3>
+        <p>The application is developed using Java Swing for the GUI and JDBC for database connectivity with MySQL. It follows object-oriented principles with clear separation of data access, business logic, and presentation layers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="quiz-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('quiz-modal')">&times;</span>
+      <div class="modal-header">
+        <h2>Interactive Quiz Game</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="modal-tag">JavaScript</span>
+          <span class="modal-tag">HTML5</span>
+          <span class="modal-tag">CSS3</span>
+          <span class="modal-tag">Web Audio API</span>
+        </div>
+        
+        <p>An engaging web-based quiz application featuring timed questions, multiple difficulty levels, sound effects, and animations to enhance the user experience.</p>
+        
+        <h3>Key Features:</h3>
+        <ul class="features-list">
+          <li>Multiple categories of quiz questions</li>
+          <li>Three difficulty levels: Easy, Medium, and Hard</li>
+          <li>Timed questions with visual countdown</li>
+          <li>Score tracking and high score leaderboard</li>
+          <li>Sound effects and animations for correct/incorrect answers</li>
+          <li>Responsive design for all device sizes</li>
+          <li>Progress tracking across quiz sessions</li>
+        </ul>
+        
+        <h3>Technical Details:</h3>
+        <p>The quiz game is built using vanilla JavaScript for the logic, HTML5 for structure, and CSS3 for styling and animations. It utilizes the Web Audio API for sound effects and localStorage for persisting user data and high scores.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="resume-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('resume-modal')">&times;</span>
+      <div class="modal-header">
+        <h2>Resume Website</h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tags">
+          <span class="modal-tag">HTML5</span>
+          <span class="modal-tag">CSS3</span>
+          <span class="modal-tag">JavaScript</span>
+          <span class="modal-tag">Responsive Design</span>
+          <span class="modal-tag">AOS Library</span>
+        </div>
+        
+        <p>This personal resume website showcases my skills, experience, and projects in an interactive and visually appealing manner. It serves as both a portfolio and a practical demonstration of my web development abilities.</p>
+        
+        <h3>Key Features:</h3>
+        <ul class="features-list">
+          <li>Responsive design that works on mobile, tablet, and desktop devices</li>
+          <li>Animated elements using AOS (Animate On Scroll) library</li>
+          <li>Clean and modern UI with attention to typography and spacing</li>
+          <li>Project showcase with detailed modal views</li>
+          <li>Contact form and social media integration</li>
+          <li>Performance optimized with minimal dependencies</li>
+        </ul>
+        
+        <h3>Technical Details:</h3>
+        <p>The website is built with semantic HTML5, CSS3 for styling, and vanilla JavaScript for interactivity. It uses the AOS library for scroll animations and Font Awesome for icons. The layout is created using CSS Flexbox and Grid for better responsiveness without relying on frameworks.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/neev-modha-617586290/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Neevmodha04"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>Contact: <a href="mailto:neev.modha2008@gmail.com">neev.modha2008@gmail.com</a></p>
+      <p>&copy; 2025 Neev Modha | All Rights Reserved</p>
+    </div>
+  </footer>
+  
+  <!-- Add AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
-  </script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
 
-  <!-- VanillaTilt JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-  <script>
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2,
+    // Modal functionality
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+      document.body.style.overflow = "auto"; // Restore scrolling
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        var modals = document.getElementsByClassName('modal');
+        for (var i = 0; i < modals.length; i++) {
+          if (modals[i].style.display === "block") {
+            modals[i].style.display = "none";
+            document.body.style.overflow = "auto";
+          }
+        }
+      }
     });
   </script>
 </body>
