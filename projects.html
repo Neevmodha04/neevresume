@@ -4,18 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Neev Modha</title>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <link rel="stylesheet" href="style.css" />
-  <!-- Add AOS CSS -->
+
+  <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #222;
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-links a.active {
+      text-decoration: underline;
+    }
+    header .hero {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background-color: #0f172a;
+      color: white;
+    }
+    .projects-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom right, #f0f0f0, #ffffff);
+    }
+    .projects-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #555;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .project-icon {
+      font-size: 2rem;
+      color: #0ea5e9;
+      margin-bottom: 0.5rem;
+    }
+    .project-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.4rem;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .project-tags {
+      margin: 1rem 0 0.5rem;
+    }
+    .tag {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+    .project-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      text-decoration: none;
+      color: #0ea5e9;
+      font-weight: 500;
+    }
+    .project-link i {
+      margin-left: 0.3rem;
+    }
+    footer {
+      background-color: #0f172a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-social a {
+      color: white;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .footer-social a:hover {
+      color: #0ea5e9;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -39,6 +157,7 @@
     <p class="section-subtitle" data-aos="fade-up">Here are some of the projects I have worked on recently.</p>
 
     <div class="projects-grid">
+      <!-- Project cards -->
       <div class="project-card" data-aos="fade-up" data-aos-delay="100">
         <div class="project-icon"><i class="fas fa-utensils"></i></div>
         <h3>Online Food Ordering System</h3>
@@ -50,7 +169,7 @@
         </div>
         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
       </div>
-      
+
       <div class="project-card" data-aos="fade-up" data-aos-delay="200">
         <div class="project-icon"><i class="fas fa-book"></i></div>
         <h3>Library Management System</h3>
@@ -62,7 +181,7 @@
         </div>
         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
       </div>
-      
+
       <div class="project-card" data-aos="fade-up" data-aos-delay="300">
         <div class="project-icon"><i class="fas fa-gamepad"></i></div>
         <h3>Quiz Game</h3>
@@ -74,7 +193,7 @@
         </div>
         <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
       </div>
-      
+
       <div class="project-card" data-aos="fade-up" data-aos-delay="400">
         <div class="project-icon"><i class="fas fa-file-alt"></i></div>
         <h3>Resume Website</h3>
@@ -100,8 +219,8 @@
       <p>&copy; 2025 Neev Modha | All Rights Reserved</p>
     </div>
   </footer>
-  
-  <!-- Add AOS JS -->
+
+  <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
